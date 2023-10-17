@@ -22,21 +22,22 @@ export default function Table<T extends AbstractItemType>({
   isToggle = false,
   sort,
 }: TableProps<T>) {
+  const [isFold, setIsFold] = useState(false);
+
+  const toggleFold = () => setIsFold((prev) => !prev);
+
+  const convertedSize = convertTableSizeByType({
+    width,
+    height,
+    data,
+    isFold,
+  });
+
   const { isWidthUnCompatible } = getWidthLayoutCondition({
     accessor,
     width,
     height,
   });
-
-  if (isWidthUnCompatible) {
-    console.error(
-      "'accessor' prop's width properties should be 100 in total. Each width will set 'auto'."
-    );
-  }
-
-  const [isFold, setIsFold] = useState(false);
-
-  const toggleFold = () => setIsFold((prev) => !prev);
 
   const providerValue = {
     isFold,
@@ -45,12 +46,11 @@ export default function Table<T extends AbstractItemType>({
     isWidthUnCompatible,
   };
 
-  const convertedSize = convertTableSizeByType({
-    width,
-    height,
-    data,
-    isFold,
-  });
+  if (isWidthUnCompatible) {
+    console.error(
+      "'accessor' prop's width properties should be 100 in total. Each width will set 'auto'."
+    );
+  }
 
   return (
     <CompoundTableContext.Provider value={providerValue}>
