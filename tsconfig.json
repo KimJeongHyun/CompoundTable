@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["dom", "esnext"],
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "./dist",
+    "emitDeclarationOnly": true
+  },
+  "include": ["./src"],
+  "exclude": [
+    "./dist",
+    "./node_modules",
+    "./src/**/*.test.tsx",
+    "./src/**/*.stories.tsx"
+  ]
+}
