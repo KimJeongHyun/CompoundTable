@@ -5,7 +5,11 @@ import { SC } from "./Table.styled";
 import { TableCols, TableRows } from "./components/";
 
 import { TableProps, AbstractItemType } from "./Table.types";
-import { convertTableSizeByType, makeUpSortedData } from "./utils";
+import {
+  convertTableSizeByType,
+  getWidthLayoutCondition,
+  makeUpSortedData,
+} from "./utils";
 
 export default function Table<T extends AbstractItemType>({
   data = [],
@@ -13,28 +17,16 @@ export default function Table<T extends AbstractItemType>({
   customCellNode,
   width,
   height,
-  //   rowHeight = 48,
-  //   isDrag = false,
   onRowClick,
   onColClick,
-  isToggle = true,
+  isToggle = false,
   sort,
 }: TableProps<T>) {
-  const totalAccessorWidth = accessor.reduce(
-    (acc, cur) => acc + (cur.width ?? 0),
-    0
-  );
-
-  const { isWidthUnder, isWidthOverflow } = {
-    isWidthUnder:
-      !!(width && accessor.every((i) => i.width) && totalAccessorWidth < 100) ||
-      (!width && totalAccessorWidth < 100),
-    isWidthOverflow:
-      !!(width && totalAccessorWidth > 100) ||
-      (!width && totalAccessorWidth > 100),
-  };
-
-  const isWidthUnCompatible = isWidthUnder || isWidthOverflow;
+  const { isWidthUnCompatible } = getWidthLayoutCondition({
+    accessor,
+    width,
+    height,
+  });
 
   if (isWidthUnCompatible) {
     console.error(
