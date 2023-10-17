@@ -36,7 +36,6 @@ export default function Table<T extends AbstractItemType>({
   const { isWidthUnCompatible } = getWidthLayoutCondition({
     accessor,
     width,
-    height,
   });
 
   const providerValue = {

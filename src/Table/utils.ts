@@ -54,11 +54,9 @@ export const makeUpSortedData = <T extends AbstractItemType>({
 export const getWidthLayoutCondition = ({
   accessor,
   width,
-  height,
 }: {
   accessor: TableAccessorType[];
   width?: string | number;
-  height?: string | number;
 }) => {
   const totalAccessorWidth = accessor.reduce(
     (acc, cur) => acc + (cur.width ?? 0),
@@ -68,7 +66,7 @@ export const getWidthLayoutCondition = ({
   const { isWidthUnder, isWidthOverflow } = {
     isWidthUnder:
       !!(width && accessor.every((i) => i.width) && totalAccessorWidth < 100) ||
-      (!width && totalAccessorWidth < 100),
+      (!width && accessor.every((i) => i.width) && totalAccessorWidth < 100),
     isWidthOverflow:
       !!(width && totalAccessorWidth > 100) ||
       (!width && totalAccessorWidth > 100),
