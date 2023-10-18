@@ -7,7 +7,7 @@ This repository contains the Table Component using compound component design pat
 
 ## Pros and Cons
 
-> [Pros}
+> [Pros]
 
 * Separation Of Concerns
   * Developer who tries to use library using compound component pattern don't have to concern about logics.
