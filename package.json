@@ -1,9 +1,11 @@
 {
-  "name": "compound-table",
-  "version": "1.0.0",
+  "name": "@kimjeonghyun/compound-table",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
+  "author": "leitmotif_jh",
+  "repository": "https://github.com/KimJeongHyun/CompoundTable.git",
   "license": "MIT",
   "scripts": {
     "build": "tsc --emitDeclarationOnly & rollup -c",
@@ -52,5 +54,8 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
