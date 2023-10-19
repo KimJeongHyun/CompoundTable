@@ -10,10 +10,10 @@ export interface ColTableProps<T> {
   width?: number | string;
   height?: number | string;
   isHeadSticky?: boolean;
-  children: Table2ChildrenType | Table2ChildrenType[];
+  children: ColTableChildrenType | ColTableChildrenType[];
 }
 
-export type Table2ChildrenType = ReactElement & {
+export type ColTableChildrenType = ReactElement & {
   type: {
     name: any;
   };

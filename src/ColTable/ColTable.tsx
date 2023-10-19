@@ -6,7 +6,7 @@ import CompoundTableContext, {
 } from "./ColTableContext";
 import {
   AbstractItemType,
-  Table2ChildrenType,
+  ColTableChildrenType,
   ColTableProps,
 } from "./ColTable.types";
 import { convertTableSizeByType } from "./utils";
@@ -110,7 +110,7 @@ const TableStickyRow = () => {
 const checkChildrenWidth = ({
   children,
 }: {
-  children: Table2ChildrenType | Table2ChildrenType[];
+  children: ColTableChildrenType | ColTableChildrenType[];
 }) => {
   if (!Array.isArray(children)) return true;
 
@@ -136,7 +136,7 @@ const checkChildrenWidth = ({
 const getChildrenLabelWidth = ({
   children,
 }: {
-  children: Table2ChildrenType | Table2ChildrenType[];
+  children: ColTableChildrenType | ColTableChildrenType[];
 }) => {
   if (!Array.isArray(children))
     return [

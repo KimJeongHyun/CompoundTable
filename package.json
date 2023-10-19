@@ -1,8 +1,8 @@
 {
   "name": "@kimjeonghyun/compound-table",
-  "version": "1.0.3",
-  "main": "dist/index.ts",
-  "module": "dist/index.esm.ts",
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.2",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@storybook/addon-essentials": "^7.4.6",

@@ -1,6 +1,7 @@
 import React from "react";
-import { TableProps } from "src/Table/Table.types";
-import { ColTableCols, ColTableProps } from "../ColTable";
+import { ColTableCols, ColTableProps } from "ColTable";
+
+import { TableProps } from "Table/Table.types";
 
 interface MockDataResponse {
   id: number;
