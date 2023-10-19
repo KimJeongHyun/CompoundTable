@@ -56,7 +56,7 @@ export const Table2Cols = <T extends AbstractItemType>({
   children,
   width,
 }: {
-  dataKey: string;
+  dataKey: keyof T;
   label: string;
   children?: (data: T[]) => ReactNode;
   width?: number;

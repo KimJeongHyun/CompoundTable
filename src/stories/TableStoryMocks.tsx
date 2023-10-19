@@ -26,9 +26,9 @@ const default2Mocks: Table2Props<MockDataResponse> = {
   width: 600,
   height: 350,
   children: [
-    <Table2Cols dataKey={"id"} label={"순서"} />,
-    <Table2Cols dataKey={"name"} label={"이름"} />,
-    <Table2Cols dataKey={"amount"} label={"가격"}>
+    <Table2Cols<MockDataResponse> dataKey={"id"} label={"순서"} />,
+    <Table2Cols<MockDataResponse> dataKey={"name"} label={"이름"} />,
+    <Table2Cols<MockDataResponse> dataKey={"amount"} label={"가격"}>
       {(data) => <>{data.toLocaleString()}</>}
     </Table2Cols>,
   ],
