@@ -1,5 +1,3 @@
-import { AbstractItemType } from "./Table2.types";
-
 export const convertTableSizeByType = ({
   width,
   height,

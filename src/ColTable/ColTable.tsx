@@ -1,12 +1,14 @@
 import React, { ReactNode, useState } from "react";
-import { SC } from "./Table2.styled";
+import { SC } from "./ColTable.styled";
 
-import CompoundTableContext, { useCompoundTableContext } from "./TableContext2";
+import CompoundTableContext, {
+  useCompoundTableContext,
+} from "./ColTableContext";
 import {
   AbstractItemType,
   Table2ChildrenType,
-  Table2Props,
-} from "./Table2.types";
+  ColTableProps,
+} from "./ColTable.types";
 import { convertTableSizeByType } from "./utils";
 
 export const TableForm = <T,>({
@@ -15,7 +17,7 @@ export const TableForm = <T,>({
   height,
   children,
   isHeadSticky,
-}: Table2Props<T>) => {
+}: ColTableProps<T>) => {
   const [isFold, setIsFold] = useState(false);
 
   const toggleFold = () => setIsFold((prev) => !prev);
@@ -44,13 +46,13 @@ export const TableForm = <T,>({
     <CompoundTableContext.Provider value={providerValue}>
       <SC.TableContainer {...convertedSize} isFold={isFold}>
         {isHeadSticky && <TableStickyRow />}
-        <SC.Table2>{children}</SC.Table2>
+        <SC.ColTable>{children}</SC.ColTable>
       </SC.TableContainer>
     </CompoundTableContext.Provider>
   );
 };
 
-export const Table2Cols = <T extends AbstractItemType>({
+export const ColTableCols = <T extends AbstractItemType>({
   dataKey,
   label,
   children,
@@ -71,18 +73,18 @@ export const Table2Cols = <T extends AbstractItemType>({
   }
 
   return (
-    <SC.TableColContainer width={isWidthCompatible ? width : undefined}>
+    <SC.ColTableContainer width={isWidthCompatible ? width : undefined}>
       {!isHeadSticky && (
-        <SC.TableColCell isHead onClick={toggleFold}>
+        <SC.ColTableCell isHead onClick={toggleFold}>
           {label}
-        </SC.TableColCell>
+        </SC.ColTableCell>
       )}
       {typedData.map((i) => (
-        <SC.TableColCell key={i.id}>
+        <SC.ColTableCell key={i.id}>
           {typeof children === "function" ? children(i[dataKey]) : i[dataKey]}
-        </SC.TableColCell>
+        </SC.ColTableCell>
       ))}
-    </SC.TableColContainer>
+    </SC.ColTableContainer>
   );
 };
 
@@ -93,13 +95,13 @@ const TableStickyRow = () => {
   return (
     <>
       {isHeadSticky && (
-        <SC.TableStickyRow onClick={toggleFold}>
+        <SC.ColTableStickyRow onClick={toggleFold}>
           {childrenLabelWidth.map((i) => (
-            <SC.TableStickyCell key={i.label} width={i.width}>
+            <SC.ColTableStickyCell key={i.label} width={i.width}>
               {i.label}
-            </SC.TableStickyCell>
+            </SC.ColTableStickyCell>
           ))}
-        </SC.TableStickyRow>
+        </SC.ColTableStickyRow>
       )}
     </>
   );

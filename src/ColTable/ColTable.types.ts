@@ -1,11 +1,11 @@
-import { ReactElement, ReactNode } from "react";
+import { ReactElement } from "react";
 
 export interface AbstractItemType {
   id: number;
   [props: string]: any;
 }
 
-export interface Table2Props<T> {
+export interface ColTableProps<T> {
   data: T[];
   width?: number | string;
   height?: number | string;

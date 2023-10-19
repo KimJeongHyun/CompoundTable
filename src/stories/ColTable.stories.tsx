@@ -1,17 +1,17 @@
 import React from "react";
-import { AbstractItemType, TableForm } from "../Table2";
+import { AbstractItemType, TableForm } from "../ColTable";
 import { Meta, StoryObj } from "@storybook/react";
 
-import { Table2Props } from "../Table2";
+import { ColTableProps } from "../ColTable";
 import { default2Mocks } from "./TableStoryMocks";
-const Default = <T extends AbstractItemType>(storyProps: Table2Props<T>) => {
+const Default = <T extends AbstractItemType>(storyProps: ColTableProps<T>) => {
   return <TableForm {...storyProps} />;
 };
 
 const meta = {
   title: "Compound-Table_Concern_Col",
   component: Default,
-} satisfies Meta<typeof React.Component<Table2Props<AbstractItemType>>>;
+} satisfies Meta<typeof React.Component<ColTableProps<AbstractItemType>>>;
 
 export type Story = StoryObj<typeof meta>;
 

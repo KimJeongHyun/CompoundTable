@@ -11,12 +11,12 @@ export const SC = {
     border: 1px solid #ccc;
     overflow: ${({ isFold }) => (isFold ? "hidden" : "auto")};
   `,
-  Table2: styled.div`
+  ColTable: styled.div`
     width: 100%;
     display: flex;
     overflow: hidden;
   `,
-  TableColContainer: styled.div<{ width?: number }>`
+  ColTableContainer: styled.div<{ width?: number }>`
     &:not(:last-child) {
       border-right: 1px solid #ccc;
     }
@@ -26,7 +26,7 @@ export const SC = {
 
     overflow: hidden;
   `,
-  TableColCell: styled.div<{ isHead?: boolean }>`
+  ColTableCell: styled.div<{ isHead?: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,14 +38,14 @@ export const SC = {
     overflow: hidden;
   `,
 
-  TableStickyRow: styled.div`
+  ColTableStickyRow: styled.div`
     height: 48px;
     display: flex;
     position: sticky;
     top: 0;
     z-index: 1;
   `,
-  TableStickyCell: styled.div<{ width?: number }>`
+  ColTableStickyCell: styled.div<{ width?: number }>`
     display: flex;
     justify-content: center;
     align-items: center;
